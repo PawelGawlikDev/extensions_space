@@ -6,7 +6,7 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://PawelGawlikDev.github.io/extensions_space",
-  base: "startify_web",
+  site: "https://pawelgawlikdev.github.io/extensions_space/",
+  base: "extensions_space",
   integrations: [tailwind(), icon(), react()],
 });
