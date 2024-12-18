@@ -1,0 +1,90 @@
+---
+import { Image } from "astro:assets";
+import Starfield from "@/components/Starfield.astro";
+import GitHubCorner from "./GithubCorner.astro";
+import type { ImageMetadata } from "astro";
+
+import { cn } from "@/utils/cn";
+
+import s from "@/styles/gradient.module.css";
+
+interface Props {
+  logo: ImageMetadata;
+  subtitle?: string;
+  title: string;
+}
+
+const { logo, subtitle, title } = Astro.props;
+---
+
+<section class="relative h-full bg-black">
+  <Starfield />
+  <GitHubCorner />
+  <div class="relative flex h-full items-center justify-center">
+    <div class="flex scale-75 flex-col items-center sm:scale-100 md:gap-5">
+      <Image
+        src={logo}
+        loading="eager"
+        alt="logo"
+        class="aspect-auto w-52 scale-[0.6] md:scale-100"
+      />
+      {
+        subtitle && (
+          <div class="animate-fade-in bg-surface pointer-events-none relative !rotate-[-30deg] transform text-nowrap rounded-full shadow text-xs md:block">
+            <div class="absolute -left-6 -top-[3.5rem] text-base md:-left-16 md:-top-12 md:text-xl">
+              <h1 class={s.title}>{subtitle}</h1>
+            </div>
+          </div>
+        )
+      }
+
+      <div
+        class="gradient-text text-center font-extrabold tracking-tighter text-6xl md:text-8xl"
+      >
+        <div
+          class="animate-fade-in text-balance bg-gradient-to-br from-30% bg-clip-text font-semibold tracking-tighter text-transparent"
+        >
+          <h1 class={cn("h-28", s.title)}>{title}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<noscript>
+  <style>
+    #splash-bg-fallback {
+      display: block;
+    }
+  </style>
+</noscript>
+
+<style>
+  @keyframes float {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(0, 30px, 0);
+    }
+  }
+
+  #astronaut {
+    animation: float linear 2.5s infinite alternate;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #astronaut {
+      @apply animate-none;
+    }
+
+    :global(#starfield) {
+      @apply hidden;
+    }
+
+    #splash-bg-fallback {
+      @apply block;
+    }
+  }
+</style>

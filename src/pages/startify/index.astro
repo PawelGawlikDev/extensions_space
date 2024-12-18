@@ -1,0 +1,80 @@
+---
+import Header from "@/components/Header.astro";
+import Features from "@/components/Features.astro";
+import Splash from "@/components/Splash.astro";
+import Download from "@/components/Download.astro";
+import "@/styles/index.css";
+import type { FeatureItem, NavItem } from "@/types";
+import logo from "@/assets/logo.png";
+
+import BaseLayout from "@/layouts/BaseLayout.astro";
+const baseUrl = import.meta.env.BASE_URL;
+
+const features: Array<FeatureItem> = [
+  {
+    title: "Customization",
+    description:
+      "Transform your start page to something beautiful. Startify offers many options to personalize your start page to your preferences.",
+    icon: "mdi:gear",
+  },
+  {
+    title: "Wallpapers",
+    description:
+      "Startify comes with pre-built animated wallpapers, but also allows you to use your own images or gradient backgrounds.",
+    icon: "mdi:image",
+  },
+  {
+    title: "Multiple Search Engines",
+    description:
+      "Startify lets you search the web using your favorite search engines. Choose from Google, DuckDuckGo, Bing, Yahoo, Ecosia, Qwant, Yandex, and Brave.",
+    icon: "mdi:magnify",
+  },
+  {
+    title: "Quick Links",
+    description:
+      "Customize quick access links to your most visited websites, making your start page a convenient gateway to the web.",
+    icon: "mdi:link-variant",
+  },
+  {
+    title: "Privacy-Focused",
+    description:
+      "Startify prioritizes your privacy. No data collection, tracking, or cloud storage. All settings are stored locally in your browser.",
+    icon: "mdi:shield-check",
+  },
+  {
+    title: "Lightweight and Fast",
+    description:
+      "Designed to be lightweight, Startify ensures a fast browsing experience without slowing down your browser.",
+    icon: "mdi:flash",
+  },
+  {
+    title: "Regular Updates",
+    description:
+      "We continuously improve Startify by adding new features and enhancing performance to keep your start page experience fresh and functional.",
+    icon: "mdi:update",
+  },
+];
+
+const startifyNav: Array<NavItem> = [
+  { title: "Home", url: `${baseUrl}/` },
+  { title: "Privacy Policy", url: `${baseUrl}/startify/privacy` },
+];
+
+const leadTitle = "Transform Your Start Page with Startify 🌟";
+
+const lean =
+  "Say goodbye to the ordinary! Startify redefines your Chrome start page with a fresh, personalized, and inspiring look every time you open a new tab.";
+
+const chromeStoreUrl =
+  "https://chromewebstore.google.com/detail/startify/fjjipcmebaelmnkkbdjnhhjbgenecgbd";
+
+const firefoxStoreUrl =
+  "https://addons.mozilla.org/pl/firefox/addon/startify_new_tab/?utm_source=startify_web";
+---
+
+<BaseLayout title="Startify" favicon="startify">
+  <Header navItems={startifyNav} {logo} title="Startify" />
+  <Splash {logo} title="Startify" subtitle="Alpha Version" />
+  <Features {features} {leadTitle} {lean} />
+  <Download {chromeStoreUrl} {firefoxStoreUrl} />
+</BaseLayout>
