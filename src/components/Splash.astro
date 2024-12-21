@@ -30,7 +30,7 @@ const { logo, subtitle, title } = Astro.props;
       />
       {
         subtitle && (
-          <div class="animate-fade-in bg-surface pointer-events-none relative !rotate-[-30deg] transform text-nowrap rounded-full shadow text-xs md:block">
+          <div class="animate-fade-in bg-surface pointer-events-none relative !rotate-[-30deg] transform text-nowrap rounded-full text-xs shadow md:block">
             <div class="absolute -left-6 -top-[3.5rem] text-base md:-left-16 md:-top-12 md:text-xl">
               <h1 class={s.title}>{subtitle}</h1>
             </div>
@@ -39,12 +39,12 @@ const { logo, subtitle, title } = Astro.props;
       }
 
       <div
-        class="gradient-text text-center font-extrabold tracking-tighter text-6xl md:text-8xl"
+        class="gradient-text text-center text-6xl font-extrabold tracking-tighter md:text-8xl"
       >
         <div
           class="animate-fade-in text-balance bg-gradient-to-br from-30% bg-clip-text font-semibold tracking-tighter text-transparent"
         >
-          <h1 class={cn("h-28", s.title)}>{title}</h1>
+          <h1 class={cn("h-32", s.title)}>{title}</h1>
         </div>
       </div>
     </div>

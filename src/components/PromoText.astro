@@ -1,0 +1,16 @@
+---
+import { FlipText } from "./FlipText";
+
+const words = ["fastest", "most intuitive", "cutting-edge"];
+---
+
+<div class="flex items-center justify-center px-4 py-24">
+  <div class="mx-auto text-4xl font-normal">
+    Explore the
+    <br />
+    <FlipText words={words} client:load />
+    <br />
+    extensions with Extensions Space.
+    <br />
+  </div>
+</div>

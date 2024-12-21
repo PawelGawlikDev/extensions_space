@@ -24,10 +24,8 @@ module.exports = {
       },
     },
   },
-  corePlugins: {
-    fontSize: false,
-  },
-  plugins: [require("tailwindcss-fluid-type"), addVariablesForColors],
+  darkMode: "",
+  plugins: [addVariablesForColors],
 };
 
 function addVariablesForColors({ addBase, theme }) {

@@ -2,7 +2,7 @@
 const config = {
   plugins: [
     "prettier-plugin-astro",
-    "prettier-plugin-tailwindcss", // MUST come last
+    "prettier-plugin-tailwindcss",
   ],
   overrides: [
     {

@@ -4,11 +4,16 @@ import Splash from "@/components/Splash.astro";
 import "@/styles/index.css";
 import type { NavItem } from "@/types";
 import logo from "@/assets/extension.png";
-
+import ExtensionsList from "@/components/ExtensionsList.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import PromoText from "@/components/PromoText.astro";
 const baseUrl = import.meta.env.BASE_URL;
 const mainNav: Array<NavItem> = [
-  { title: "Startify", url: `${baseUrl}/startify` },
+  {
+    title: "Startify",
+    url: `${baseUrl}/startify`,
+    description: "Transform Your Start Page with Startify 🌟",
+  },
 ];
 const title = "Extensions Space";
 ---
@@ -16,4 +21,6 @@ const title = "Extensions Space";
 <BaseLayout {title} favicon="favicon">
   <Header navItems={mainNav} {logo} {title} />
   <Splash {logo} {title} />
+  <PromoText />
+  <ExtensionsList items={mainNav} />
 </BaseLayout>
