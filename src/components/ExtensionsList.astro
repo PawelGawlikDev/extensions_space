@@ -14,12 +14,12 @@ const { items } = Astro.props;
         <div class="flex items-center justify-center">
           <PinContainer client:load title="Startify" href={url}>
             <div class="flex h-[20rem] w-[20rem] basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2">
-              <h3 class="!m-0 max-w-xs !pb-2 text-base font-bold text-slate-100">
+              <h3 class="!m-0 max-w-xs !pb-2 text-base font-bold text-default">
                 {title}
               </h3>
               {description && (
                 <div class="!m-0 !p-0 text-base font-normal">
-                  <span class="text-slate-500">{description}</span>
+                  <span class="text-default">{description}</span>
                 </div>
               )}
               <div class="mt-4 flex w-full flex-1 rounded-lg bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" />
